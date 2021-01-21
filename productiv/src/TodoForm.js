@@ -10,7 +10,7 @@ import React, { useState } from "react";
  * { TodoApp, EditableTodo } -> TodoForm
  */
 
-function TodoForm({ initialFormData, handleSave }) {
+function TodoForm({ initialFormData={}, handleSave }) {
 
   /** Update form input. */
   function handleChange(evt) { }
