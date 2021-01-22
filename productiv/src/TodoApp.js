@@ -26,9 +26,9 @@ function TodoApp({ initialTodos }) {
 
   /** update a todo with updatedTodo */
   function update(updatedTodo) {
-    setTodos(todos => 
-      todos.map(todo => 
-        todo.id === updatedTodo.id ? updatedTodo : todo));     
+    setTodos(todos =>
+      todos.map(todo =>
+        todo.id === updatedTodo.id ? updatedTodo : todo));
   }
 
   /** delete a todo by id */
@@ -37,19 +37,23 @@ function TodoApp({ initialTodos }) {
   }
 
   const todoList = (todos.length === 0)
-                      ? <span className="text-muted">You have no todos.</span>
-                      : <EditableTodoList 
-                          todos={todos}
-                          update={update}
-                          remove={remove}
-                        />;
+    ? <span className="text-muted">You have no todos.</span>
+    : <EditableTodoList
+      todos={todos}
+      update={update}
+      remove={remove}
+    />;
 
-  const topTodo = (todos.length === 0)
-                    ? ""
-                    : (<section className="mb-4">
-                        <h3>Top Todo</h3>
-                        <TopTodo todos={todos}/>
-                      </section>);
+  let topTodo = (
+      <section className="mb-4">
+        <h3>Top Todo</h3>
+        <TopTodo todos={todos} />
+      </section>
+  );
+  
+  if (todos.length === 0 || todos.every(todo => todo.isComplete)) {
+    topTodo = '';
+  }
 
   return (
     <main className="TodoApp">
@@ -65,7 +69,7 @@ function TodoApp({ initialTodos }) {
           <section>
             <h3 className="mb-3">Add Nü</h3>
             <TodoForm handleSave={create} />
-            </section>
+          </section>
         </div>
 
       </div>

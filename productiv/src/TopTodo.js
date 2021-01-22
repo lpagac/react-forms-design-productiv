@@ -12,10 +12,16 @@ import Todo from "./Todo";
 
 function TopTodo({ todos }) {
   // lowest-priority # is the highest priority
-  let top = todos.reduce(
-      (acc, cur) => cur.priority < acc.priority ? cur : acc, todos[0]);
+  let top = Infinity;
+  let winner;
+  for (let todo of todos) {
+    if (!todo.isComplete && todo.priority < top) {
+      top = todo.priority;
+      winner = todo;
+    }
+  }
 
-  return <Todo todo={top}/>;
+  return <Todo todo={winner}/>;
 }
 
 export default TopTodo;
