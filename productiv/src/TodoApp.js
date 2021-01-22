@@ -26,15 +26,9 @@ function TodoApp({ initialTodos }) {
 
   /** update a todo with updatedTodo */
   function update(updatedTodo) {
-    setTodos(todos => {
-      todos.map(todo => {
-        if (todo.id === updatedTodo.id) {
-          return updatedTodo;
-        } else {
-          return todo;
-        }
-      })
-    });
+    setTodos(todos => 
+      todos.map(todo => 
+        todo.id === updatedTodo.id ? updatedTodo : todo));     
   }
 
   /** delete a todo by id */

@@ -19,12 +19,12 @@ function EditableTodo({todo, update, remove}) {
   const [isEditing, setIsEditing] = useState(false);
 
   /** Toggle if this is being edited */
-  function toggleEdit() {
+  function toggleEdit(evt) {
     setIsEditing(isEditing => !isEditing);
   }
 
   /** Call remove fn passed to this. */
-  function handleDelete() {
+  function handleDelete(evt) {
     remove(todo.id);
   }
 

@@ -12,7 +12,6 @@ import EditableTodo from "./EditableTodo";
  */
 
 function EditableTodoList({todos, update, remove}) {
-  console.log("TODOS ", todos);
   
   return (
     <div className="EditableTodo">

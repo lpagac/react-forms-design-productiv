@@ -9,7 +9,6 @@ import React from "react";
  **/
 
 function Todo(props) {
-  console.log(props.todo);
   const {id, title, description, priority} = props.todo;
 
   return (
